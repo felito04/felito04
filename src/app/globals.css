@@ -405,7 +405,7 @@ nav {
   background: var(--bg);
 }
 #portfolio-view { display: none; }
-#portfolio-view.active { display: block; }
+#portfolio-view.active { display: block; padding-top: var(--nav-h); }
 
 /* Landing bg */
 .l-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
