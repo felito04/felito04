@@ -2,6 +2,107 @@
 
 import { useApp } from '@/context/AppContext'
 
+const extraSkills = [
+  {
+    nameEs: 'Organización administrativa',
+    nameEn: 'Administrative organization',
+    descEs: 'Procesos, documentación, correo, archivos y seguimiento operativo.',
+    descEn: 'Processes, documentation, email, files and operational follow-up.',
+    level: 95,
+  },
+  {
+    nameEs: 'Automatización de procesos',
+    nameEn: 'Process automation',
+    descEs: 'Flujos internos, avisos, aprobaciones, tareas y reportes recurrentes.',
+    descEn: 'Internal flows, alerts, approvals, tasks and recurring reports.',
+    level: 96,
+  },
+  {
+    nameEs: 'Integraciones API',
+    nameEn: 'API integrations',
+    descEs: 'Conexión entre CRMs, pagos, formularios, bases de datos y plataformas externas.',
+    descEn: 'Connecting CRMs, payments, forms, databases and external platforms.',
+    level: 88,
+  },
+  {
+    nameEs: 'Backends personalizados',
+    nameEn: 'Custom backends',
+    descEs: 'Aprendizaje rápido en plataformas existentes y adaptación a sistemas internos.',
+    descEn: 'Fast onboarding on existing platforms and adaptation to internal systems.',
+    level: 86,
+  },
+  {
+    nameEs: 'Dashboards y reportes',
+    nameEn: 'Dashboards and reporting',
+    descEs: 'Indicadores, métricas operativas, control de actividad y seguimiento.',
+    descEn: 'Indicators, operational metrics, activity control and follow-up.',
+    level: 92,
+  },
+  {
+    nameEs: 'Atención al cliente',
+    nameEn: 'Customer support',
+    descEs: 'Gestión, comunicación, seguimiento, incidencias y postventa.',
+    descEn: 'Management, communication, follow-up, incidents and after-sales support.',
+    level: 94,
+  },
+  {
+    nameEs: 'Postventa y garantías',
+    nameEn: 'After-sales and warranties',
+    descEs: 'Garantías, soporte posterior a la venta y gestión de documentación.',
+    descEn: 'Warranties, after-sales support and documentation management.',
+    level: 92,
+  },
+  {
+    nameEs: 'Logística operativa',
+    nameEn: 'Operational logistics',
+    descEs: 'Coordinación de envíos, incidencias, proveedores y operadores logísticos.',
+    descEn: 'Coordination of shipments, incidents, suppliers and shipping carriers.',
+    level: 90,
+  },
+  {
+    nameEs: 'E-commerce operations',
+    nameEn: 'E-commerce operations',
+    descEs: 'Pagos, carritos, proveedores, logística y cierres operativos.',
+    descEn: 'Payments, carts, suppliers, logistics and operational closing.',
+    level: 88,
+  },
+  {
+    nameEs: 'Control de accesos',
+    nameEn: 'Access control',
+    descEs: 'Usuarios, roles, permisos, credenciales y buenas prácticas de seguridad.',
+    descEn: 'Users, roles, permissions, credentials and security best practices.',
+    level: 90,
+  },
+  {
+    nameEs: 'QA funcional',
+    nameEn: 'Functional QA',
+    descEs: 'Pruebas de flujos, formularios, pagos, bugs y validación antes de producción.',
+    descEn: 'Flow, form, payment, bug testing and pre-production validation.',
+    level: 87,
+  },
+  {
+    nameEs: 'Migración de datos',
+    nameEn: 'Data migration',
+    descEs: 'Limpieza, importación y transición entre Excel, CSV, CRM y bases de datos.',
+    descEn: 'Cleaning, importing and transitioning across Excel, CSV, CRM and databases.',
+    level: 86,
+  },
+  {
+    nameEs: 'Seguros RC clientes',
+    nameEn: 'Client liability insurance',
+    descEs: 'Gestión de seguro civil, documentación y seguimiento administrativo.',
+    descEn: 'Civil liability insurance, documentation and administrative follow-up.',
+    level: 84,
+  },
+  {
+    nameEs: 'Onboarding operativo',
+    nameEn: 'Operational onboarding',
+    descEs: 'Accesos, carpetas, herramientas, documentación y preparación de usuarios.',
+    descEn: 'Access, folders, tools, documentation and user setup.',
+    level: 90,
+  },
+]
+
 export function Skills() {
   const { t } = useApp()
 
@@ -18,6 +119,10 @@ export function Skills() {
             'Administrative expertise + technology. A rare combination.',
           )}
         </p>
+
+        <div className="grid-section-title rv" data-d="2">
+          {t('Capacidades y habilidades', 'Capabilities and skills')}
+        </div>
 
         <div className="sk-grid">
           {/* Skill 1 */}
@@ -137,6 +242,26 @@ export function Skills() {
               <div className="sk-bar" />
             </div>
           </div>
+
+          <div className="grid-section-title grid-section-title-inline">
+            {t('Habilidades operativas', 'Operational skills')}
+          </div>
+
+          {extraSkills.map((skill, index) => (
+            <div className="sk-card rv" data-d={(index % 3) + 1} data-skill={skill.level} key={skill.nameEs}>
+              <div className="sk-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="4" y="4" width="16" height="16" rx="3" />
+                  <path d="M8 9h8M8 13h6M8 17h4" />
+                </svg>
+              </div>
+              <div className="sk-name">{t(skill.nameEs, skill.nameEn)}</div>
+              <div className="sk-desc">{t(skill.descEs, skill.descEn)}</div>
+              <div className="sk-bar-wrap">
+                <div className="sk-bar" />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

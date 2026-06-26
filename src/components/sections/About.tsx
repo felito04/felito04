@@ -22,15 +22,13 @@ export function About() {
               <p>
                 {lang === 'es' ? (
                   <>
-                    Soy <strong>Félix Alejandro Zamora Méndez</strong>, profesional administrativo
-                    con amplia experiencia en gestión empresarial, optimización de procesos y
-                    coordinación de equipos.
+                    Soy <strong>Félix Alejandro Zamora Méndez</strong>, especialista en
+                    administración y optimización de procesos.
                   </>
                 ) : (
                   <>
-                    I&apos;m <strong>Félix Alejandro Zamora Méndez</strong>, an administrative
-                    professional with deep experience in business management, process optimization
-                    and team coordination.
+                    I&apos;m <strong>Félix Alejandro Zamora Méndez</strong>, a specialist in
+                    administration and process optimization.
                   </>
                 )}
               </p>
@@ -49,8 +47,8 @@ export function About() {
               </div>
               <p>
                 {t(
-                  'Si no existe un CRM que se adapte al negocio, lo construyo. En un día.',
-                  "If a CRM doesn't exist that fits the business, I build it. In one day.",
+                  'Si no existe un CRM que se adapte al negocio, desarrollo una solución a medida.',
+                  "If a CRM doesn't exist that fits the business, I develop a tailor-made solution.",
                 )}
               </p>
             </div>
@@ -59,21 +57,21 @@ export function About() {
           {/* Right: stats */}
           <div className="stats-grid rvr" data-d="2">
             <div className="stat">
-              <div className="sn counter" data-target="10">
+              <div className="sn counter" data-target="2">
                 0
               </div>
-              <div className="sl">{t('Años exp.', 'Years exp.')}</div>
+              <div className="sl">{t('Años de experiencia demostrables', 'Years of demonstrable experience')}</div>
             </div>
             <div className="stat">
               <div className="sn">2</div>
               <div className="sl">{t('Países', 'Countries')}</div>
             </div>
             <div className="stat">
-              <div className="sn">∞</div>
+              <div className="sn">3</div>
               <div className="sl">{t('CRMs creados', 'CRMs built')}</div>
             </div>
             <div className="stat">
-              <div className="sn counter" data-target="4">
+              <div className="sn counter" data-target="6">
                 0
               </div>
               <div className="sl">{t('Tecnologías', 'Core tech')}</div>

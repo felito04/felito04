@@ -167,8 +167,8 @@ export function Navigation({ portfolioReady }: Props) {
                   <div className="mega-label">{t('CRM desde cero', 'Custom CRM from scratch')}</div>
                   <div className="mega-desc">
                     {t(
-                      'Si no existe, lo construyo. En un día.',
-                      "If it doesn't exist, I build it. In one day.",
+                      'Soluciones CRM desarrolladas a medida.',
+                      'Tailor-made CRM solutions.',
                     )}
                   </div>
                 </div>

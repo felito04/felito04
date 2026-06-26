@@ -31,8 +31,8 @@ export function Landing() {
         {/* Subtitle */}
         <p className="l-sub l-anim" style={{ animationDelay: '.55s' }}>
           {t(
-            'Profesional Administrativo · Desarrollador de Software · Creador de CRM',
-            'Administrative Professional · Software Developer · CRM Builder',
+            'Administración y automatización de procesos · Desarrollo web y móvil · Soluciones CRM a medida',
+            'Process administration and automation · Web and mobile development · Tailor-made CRM solutions',
           )}
         </p>
 

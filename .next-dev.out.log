@@ -1,0 +1,72 @@
+
+> felix-zamora-portfolio@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.68.111:3000
+
+✓ Starting...
+✓ Ready in 2.6s
+ GET / 200 in 2.3s (compile: 2.0s, render: 287ms)
+ GET /sw.js 404 in 876ms (compile: 784ms, render: 92ms)
+✓ Compiled in 118ms
+ GET / 200 in 382ms (compile: 180ms, render: 202ms)
+ GET / 200 in 110ms (compile: 16ms, render: 94ms)
+ GET / 200 in 100ms (compile: 5ms, render: 95ms)
+ GET /sw.js 404 in 152ms (compile: 66ms, render: 85ms)
+ GET / 200 in 45ms (compile: 5ms, render: 41ms)
+ GET /sw.js 404 in 40ms (compile: 13ms, render: 27ms)
+✓ Compiled in 165ms
+ GET / 200 in 260ms (compile: 105ms, render: 155ms)
+ GET /sw.js 404 in 174ms (compile: 24ms, render: 150ms)
+✓ Compiled in 36ms
+ GET / 200 in 134ms (compile: 59ms, render: 75ms)
+ GET /sw.js 404 in 79ms (compile: 20ms, render: 59ms)
+✓ Compiled in 31ms
+✓ Compiled in 187ms
+ GET / 200 in 174ms (compile: 81ms, render: 93ms)
+ GET /sw.js 404 in 61ms (compile: 17ms, render: 44ms)
+✓ Compiled in 182ms
+✓ Compiled in 971ms
+ GET / 200 in 559ms (compile: 262ms, render: 297ms)
+ GET /sw.js 404 in 136ms (compile: 53ms, render: 83ms)
+✓ Compiled in 272ms
+✓ Compiled in 407ms
+ GET / 200 in 201ms (compile: 91ms, render: 110ms)
+ GET /sw.js 404 in 76ms (compile: 34ms, render: 42ms)
+✓ Compiled in 85ms
+✓ Compiled in 95ms
+✓ Compiled in 56ms
+✓ Compiled in 26ms
+✓ Compiled in 47ms
+✓ Compiled in 29ms
+ GET / 200 in 398ms (compile: 219ms, render: 180ms)
+ GET /sw.js 404 in 50ms (compile: 18ms, render: 32ms)
+✓ Compiled in 66ms
+✓ Compiled in 56ms
+✓ Compiled in 119ms
+ GET / 200 in 276ms (compile: 98ms, render: 178ms)
+ GET /sw.js 404 in 78ms (compile: 19ms, render: 60ms)
+✓ Compiled in 85ms
+ GET / 200 in 626ms (compile: 384ms, render: 241ms)
+ GET /sw.js 404 in 162ms (compile: 89ms, render: 72ms)
+✓ Compiled in 396ms
+ GET / 200 in 599ms (compile: 334ms, render: 265ms)
+ GET /sw.js 404 in 98ms (compile: 58ms, render: 40ms)
+✓ Compiled in 651ms
+✓ Compiled in 92ms
+ GET / 200 in 389ms (compile: 174ms, render: 214ms)
+ GET /sw.js 404 in 370ms (compile: 207ms, render: 163ms)
+✓ Compiled in 254ms
+ GET / 200 in 374ms (compile: 190ms, render: 184ms)
+ GET /sw.js 404 in 91ms (compile: 35ms, render: 56ms)
+✓ Compiled in 370ms
+✓ Compiled in 119ms
+✓ Compiled in 56ms
+✓ Compiled in 60ms
+✓ Compiled in 71ms
+ GET / 200 in 415ms (compile: 219ms, render: 196ms)
+ GET /sw.js 404 in 55ms (compile: 20ms, render: 35ms)
+ GET / 200 in 239ms (compile: 108ms, render: 131ms)
+ GET /sw.js 404 in 90ms (compile: 41ms, render: 49ms)

@@ -4,7 +4,7 @@ import { AppProvider } from '@/context/AppContext'
 
 export const metadata: Metadata = {
   title: 'Félix Zamora — Portfolio',
-  description: 'Profesional Administrativo · Desarrollador de Software · Creador de CRM',
+  description: 'Administración y automatización de procesos · Desarrollo web y móvil · Soluciones CRM a medida',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
