@@ -5,6 +5,11 @@ import { AppProvider } from '@/context/AppContext'
 export const metadata: Metadata = {
   title: 'Félix Zamora — Portfolio',
   description: 'Administración y automatización de procesos · Desarrollo web y móvil · Soluciones CRM a medida',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
