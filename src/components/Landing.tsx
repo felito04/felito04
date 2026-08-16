@@ -1,9 +1,10 @@
 'use client'
 
+import Link from 'next/link'
 import { useApp } from '@/context/AppContext'
 
 export function Landing() {
-  const { t, showPortfolio } = useApp()
+  const { t } = useApp()
 
   return (
     <div id="landing-view">
@@ -70,12 +71,12 @@ export function Landing() {
 
         {/* CTA buttons */}
         <div className="l-btns l-anim" style={{ animationDelay: '.75s' }}>
-          <button className="btn-main" onClick={() => showPortfolio()}>
+          <Link className="btn-main" href="/portfolio">
             {t('Ver Portfolio', 'View Portfolio')}
-          </button>
-          <button className="btn-sec" onClick={() => showPortfolio('contacto')}>
+          </Link>
+          <Link className="btn-sec" href="/portfolio#contacto">
             {t('Contactar', 'Contact me')}
-          </button>
+          </Link>
         </div>
 
         {/* Locations */}

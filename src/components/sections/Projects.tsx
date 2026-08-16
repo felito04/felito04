@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useApp } from '@/context/AppContext'
 
 export function Projects() {
@@ -22,14 +23,14 @@ export function Projects() {
         <div className="pr-grid">
           {/* Project 1: Why Not Technology */}
           <div className="pr-card rv" data-d="1">
-            <div
-              className="pr-thumb"
-              style={{ background: 'linear-gradient(135deg,#0071e3,#00c4ff)' }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
+            <div className="pr-thumb pr-thumb-logo">
+              <Image
+                src="/logos/projects/why-not-technology.jpg"
+                alt="Why Not Technology"
+                width={1024}
+                height={1024}
+                sizes="160px"
+              />
             </div>
             <div className="pr-body">
               <div className="pr-type">
@@ -71,15 +72,14 @@ export function Projects() {
 
           {/* Project 2: SoPeak */}
           <div className="pr-card rv" data-d="2">
-            <div
-              className="pr-thumb"
-              style={{ background: 'linear-gradient(135deg,#1d1d1f,#3a3a3c)' }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
+            <div className="pr-thumb pr-thumb-logo">
+              <Image
+                src="/logos/projects/sopeak-transparent.png"
+                alt="SoPeak"
+                width={1254}
+                height={1254}
+                sizes="160px"
+              />
             </div>
             <div className="pr-body">
               <div className="pr-type">
@@ -119,41 +119,6 @@ export function Projects() {
             </div>
           </div>
 
-          {/* Project 3: Custom CRM */}
-          <div className="pr-card rv" data-d="3">
-            <div
-              className="pr-thumb"
-              style={{ background: 'linear-gradient(135deg,#1a7f37,#30d158)' }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M3 9h18M9 21V9" />
-              </svg>
-            </div>
-            <div className="pr-body">
-              <div className="pr-type">
-                {t('CRM · App Script + Excel', 'CRM · App Script + Excel')}
-              </div>
-              <div className="pr-title">{t('CRM desde Cero', 'Custom CRM from scratch')}</div>
-              <div className="pr-desc">
-                {t(
-                  'Sistema de gestión construido para necesidades exactas del negocio. Sin licencia — el sistema se adapta a ti.',
-                  'Complete management system built for exact business needs. No license — the tool adapts to you.',
-                )}
-              </div>
-              <div className="tags">
-                <span className="tag">App Script</span>
-                <span className="tag">Excel</span>
-                <span className="tag">CRM</span>
-              </div>
-              <div className="pr-foot">
-                <div />
-                <a href="#contacto" className="pr-link">
-                  {t('Pedir demo →', 'Request demo →')}
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

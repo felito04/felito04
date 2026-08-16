@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useApp } from '@/context/AppContext'
 
 interface Props {
@@ -22,7 +23,7 @@ export function MobileNav({ portfolioReady }: Props) {
       <div className="mob-section">
         <div className="mob-section-title">{t('Navegación', 'Navigation')}</div>
 
-        <a className="mob-link" href="#sobre" onClick={closeMobMenu}>
+        <Link className="mob-link" href="/sobre-mi" onClick={closeMobMenu}>
           <div className="mob-link-ic" style={{ background: '#eff6ff' }}>
             <svg viewBox="0 0 24 24" fill="none" stroke="#0071e3" strokeWidth="2">
               <circle cx="12" cy="8" r="4" />
@@ -38,7 +39,7 @@ export function MobileNav({ portfolioReady }: Props) {
               <path d="M9 18l6-6-6-6" />
             </svg>
           </div>
-        </a>
+        </Link>
 
         <a className="mob-link" href="#habilidades" onClick={closeMobMenu}>
           <div className="mob-link-ic" style={{ background: '#fdf4ff' }}>
