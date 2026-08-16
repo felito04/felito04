@@ -4,7 +4,7 @@ import { AppProvider } from '@/context/AppContext'
 
 export const metadata: Metadata = {
   title: 'Félix Zamora — Portfolio',
-  description: 'Administración y automatización de procesos · Desarrollo web y móvil · Soluciones CRM a medida',
+  description: 'Administrativo especializado en automatización de procesos',
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',

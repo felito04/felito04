@@ -31,8 +31,8 @@ export function Landing() {
         {/* Subtitle */}
         <p className="l-sub l-anim" style={{ animationDelay: '.55s' }}>
           {t(
-            'Administración y automatización de procesos · Desarrollo web y móvil · Soluciones CRM a medida',
-            'Process administration and automation · Web and mobile development · Tailor-made CRM solutions',
+            'Administrativo especializado en automatización de procesos',
+            'Administrative professional specialized in process automation',
           )}
         </p>
 
@@ -72,9 +72,6 @@ export function Landing() {
         <div className="l-btns l-anim" style={{ animationDelay: '.75s' }}>
           <button className="btn-main" onClick={() => showPortfolio()}>
             {t('Ver Portfolio', 'View Portfolio')}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
           </button>
           <button className="btn-sec" onClick={() => showPortfolio('contacto')}>
             {t('Contactar', 'Contact me')}
