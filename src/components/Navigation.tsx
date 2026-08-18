@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect } from 'react'
 import { useApp } from '@/context/AppContext'
 
@@ -8,7 +9,7 @@ interface Props {
 }
 
 export function Navigation({ portfolioReady }: Props) {
-  const { lang, theme, goHome, toggleTheme, toggleLang, t } = useApp()
+  const { lang, theme, toggleTheme, toggleLang, t } = useApp()
 
   // Active nav link highlight on scroll
   useEffect(() => {
@@ -35,9 +36,9 @@ export function Navigation({ portfolioReady }: Props) {
 
   return (
     <nav>
-      <div className="nav-logo" onClick={goHome}>
+      <Link className="nav-logo" href="/">
         FZ
-      </div>
+      </Link>
 
       {/* Desktop nav items — shown only when portfolio is ready */}
       <ul
@@ -55,7 +56,7 @@ export function Navigation({ portfolioReady }: Props) {
           </span>
           <div className="mega" style={{ minWidth: '360px' }}>
             <div className="mega-grid">
-              <a className="mega-item" href="#sobre">
+              <Link className="mega-item" href="/sobre-mi">
                 <div className="mega-icon" style={{ background: '#eff6ff' }}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="#0071e3" strokeWidth="2">
                     <circle cx="12" cy="8" r="4" />
@@ -68,7 +69,7 @@ export function Navigation({ portfolioReady }: Props) {
                     {t('Quién soy y qué me diferencia', 'Who I am and what sets me apart')}
                   </div>
                 </div>
-              </a>
+              </Link>
               <a className="mega-item" href="#experiencia">
                 <div className="mega-icon" style={{ background: '#fff7ed' }}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2">

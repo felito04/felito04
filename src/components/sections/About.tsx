@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useApp } from '@/context/AppContext'
 
 export function About() {
@@ -39,6 +40,12 @@ export function About() {
                 )}
               </p>
             </div>
+            <Link className="about-read-more" href="/sobre-mi">
+              {t('Leer más', 'Read more')}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
             <div className="about-hl">
               <div className="about-hl-ic">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

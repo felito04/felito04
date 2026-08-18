@@ -1,9 +1,10 @@
 'use client'
 
+import Link from 'next/link'
 import { useApp } from '@/context/AppContext'
 
 export function Landing() {
-  const { t, showPortfolio } = useApp()
+  const { t } = useApp()
 
   return (
     <div id="landing-view">
@@ -31,8 +32,8 @@ export function Landing() {
         {/* Subtitle */}
         <p className="l-sub l-anim" style={{ animationDelay: '.55s' }}>
           {t(
-            'Administración y automatización de procesos · Desarrollo web y móvil · Soluciones CRM a medida',
-            'Process administration and automation · Web and mobile development · Tailor-made CRM solutions',
+            'Administrativo especializado en automatización de procesos',
+            'Administrative professional specialized in process automation',
           )}
         </p>
 
@@ -70,15 +71,12 @@ export function Landing() {
 
         {/* CTA buttons */}
         <div className="l-btns l-anim" style={{ animationDelay: '.75s' }}>
-          <button className="btn-main" onClick={() => showPortfolio()}>
+          <Link className="btn-main" href="/portfolio">
             {t('Ver Portfolio', 'View Portfolio')}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-          <button className="btn-sec" onClick={() => showPortfolio('contacto')}>
+          </Link>
+          <Link className="btn-sec" href="/portfolio#contacto">
             {t('Contactar', 'Contact me')}
-          </button>
+          </Link>
         </div>
 
         {/* Locations */}
