@@ -1361,6 +1361,10 @@ section:nth-child(even) { background: var(--bg2); }
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
+@media (max-width: 1050px) {
+  .pr-grid--preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pr-grid--preview .pr-card:nth-child(n + 3) { display: none; }
+}
 .pr-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1894,6 +1898,20 @@ footer a:hover { color: #fff; }
   .skills-detail-intro { margin-top: 22px; font-size: 16px; }
   .skills-detail-grid { grid-template-columns: 1fr; margin-top: 46px; }
   .pr-grid { grid-template-columns: 1fr; }
+  .pr-grid--preview {
+    display: flex;
+    gap: 14px;
+    margin-right: -5.5%;
+    padding-right: 5.5%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .pr-grid--preview::-webkit-scrollbar { display: none; }
+  .pr-grid--preview .pr-card {
+    flex: 0 0 min(82vw, 340px);
+    scroll-snap-align: start;
+  }
   .projects-page #proyectos { padding: 64px 5%; }
   .tools-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .tools-grid--preview .tool:nth-child(n + 7) { display: none; }

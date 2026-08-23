@@ -33,7 +33,7 @@ export function Projects({ preview = true }: { preview?: boolean }) {
           </div>
         )}
 
-        <div className="pr-grid">
+        <div className={`pr-grid${preview ? ' pr-grid--preview' : ''}`}>
           {/* Project 1: Why Not Technology */}
           <div className={`pr-card${preview ? ' rv' : ''}`} data-d="1">
             <div className="pr-thumb pr-thumb-logo">
