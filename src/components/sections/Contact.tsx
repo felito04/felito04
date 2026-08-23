@@ -1,20 +1,88 @@
 'use client'
 
-import { FormEvent } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import { useApp } from '@/context/AppContext'
+
+type SubmitStatus = 'idle' | 'sending' | 'success' | 'error'
 
 export function Contact() {
   const { t } = useApp()
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+
+  const closeSuccess = () => setSubmitStatus('idle')
+
+  useEffect(() => {
+    if (submitStatus !== 'success') return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    closeButtonRef.current?.focus()
+
+    const timer = window.setTimeout(closeSuccess, 9000)
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeSuccess()
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.clearTimeout(timer)
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [submitStatus])
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Form submission placeholder — connect to API or email service as needed
-    alert(t('¡Mensaje enviado! Te responderé pronto.', 'Message sent! I will reply soon.'))
+    setSubmitStatus('sending')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+
+    // Bots commonly fill hidden fields. Do not forward their message.
+    if (formData.get('website')) {
+      form.reset()
+      setSubmitStatus('success')
+      return
+    }
+
+    try {
+      if (!accessKey) throw new Error('Web3Forms access key is not configured')
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `[PORTFOLIO] Nuevo mensaje de ${formData.get('name')}`,
+          from_name: 'Portfolio de Félix Zamora',
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+          replyto: formData.get('email'),
+        }),
+      })
+
+      const result = (await response.json()) as { success?: boolean }
+
+      if (!response.ok || !result.success) {
+        throw new Error('Contact form request failed')
+      }
+
+      form.reset()
+      setSubmitStatus('success')
+    } catch {
+      setSubmitStatus('error')
+    }
   }
 
   return (
-    <section id="contacto">
-      <div className="si">
+    <>
+      <section id="contacto">
+        <div className="si">
         <p className="s-label rv">{t('Contacto', 'Contact')}</p>
         <h2 className="s-title rv" data-d="1">
           {t('Hablemos.', "Let's talk.")}
@@ -106,7 +174,10 @@ export function Contact() {
                 <label>{t('Nombre completo', 'Full name')}</label>
                 <input
                   type="text"
+                  name="name"
                   placeholder={t('Tu nombre', 'Your name')}
+                  autoComplete="name"
+                  maxLength={100}
                   required
                 />
               </div>
@@ -114,27 +185,112 @@ export function Contact() {
                 <label>Email</label>
                 <input
                   type="email"
+                  name="email"
                   placeholder={t('tu@email.com', 'your@email.com')}
+                  autoComplete="email"
+                  maxLength={254}
                   required
                 />
               </div>
               <div className="fg">
                 <label>{t('Mensaje', 'Message')}</label>
                 <textarea
+                  name="message"
                   placeholder={t(
                     'Cuéntame sobre la oportunidad...',
                     'Tell me about the opportunity...',
                   )}
+                  maxLength={5000}
                   required
                 />
               </div>
-              <button type="submit" className="form-btn">
-                {t('Enviar Mensaje →', 'Send Message →')}
+
+              <div className="contact-honeypot" aria-hidden="true">
+                <label htmlFor="contact-website">Website</label>
+                <input
+                  id="contact-website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="form-btn"
+                disabled={submitStatus === 'sending'}
+              >
+                {submitStatus === 'sending'
+                  ? t('Enviando…', 'Sending…')
+                  : t('Enviar Mensaje →', 'Send Message →')}
               </button>
+
+              <div
+                className={`form-status ${submitStatus === 'error' ? 'is-error' : ''}`}
+                role="status"
+                aria-live="polite"
+              >
+                {submitStatus === 'error' &&
+                  t(
+                    'No se pudo enviar. Inténtalo de nuevo o escríbeme directamente por email.',
+                    'Could not send. Please try again or email me directly.',
+                  )}
+              </div>
             </form>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      {submitStatus === 'success' && (
+        <div
+          className="contact-success-overlay"
+          role="presentation"
+          onMouseDown={closeSuccess}
+        >
+          <div
+            className="contact-success-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-success-title"
+            aria-describedby="contact-success-description"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <div className="contact-success-icon" aria-hidden="true">
+              <span className="contact-success-ring" />
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="m6.5 12.5 3.5 3.5 7.5-8" />
+              </svg>
+              <span className="contact-success-spark spark-one" />
+              <span className="contact-success-spark spark-two" />
+              <span className="contact-success-spark spark-three" />
+              <span className="contact-success-spark spark-four" />
+            </div>
+
+            <p className="contact-success-eyebrow">
+              {t('Mensaje recibido', 'Message received')}
+            </p>
+            <h3 id="contact-success-title">
+              {t('¡Muchas gracias!', 'Thank you very much!')}
+            </h3>
+            <p id="contact-success-description">
+              {t(
+                'Tendré muy en cuenta tu oferta y te responderé lo antes posible.',
+                'I will carefully consider your offer and get back to you as soon as possible.',
+              )}
+            </p>
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="contact-success-close"
+              onClick={closeSuccess}
+            >
+              {t('Entendido', 'Got it')}
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
