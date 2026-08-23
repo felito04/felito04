@@ -33,4 +33,5 @@ export const operationalSkills: PortfolioSkill[] = [
   { nameEs: 'Migración de datos', nameEn: 'Data migration', descEs: 'Limpieza, importación y transición entre Excel, CSV, CRM y bases de datos.', descEn: 'Cleaning, importing and transitioning across Excel, CSV, CRM and databases.', level: 86, icon: 'operations' },
   { nameEs: 'Seguros RC clientes', nameEn: 'Client liability insurance', descEs: 'Gestión de seguro civil, documentación y seguimiento administrativo.', descEn: 'Civil liability insurance, documentation and administrative follow-up.', level: 84, icon: 'operations' },
   { nameEs: 'Onboarding operativo', nameEn: 'Operational onboarding', descEs: 'Accesos, carpetas, herramientas, documentación y preparación de usuarios.', descEn: 'Access, folders, tools, documentation and user setup.', level: 90, icon: 'operations' },
+  { nameEs: 'Implantación de herramientas', nameEn: 'Tool implementation', descEs: 'Alta, configuración, integración y adopción de nuevas plataformas y servicios.', descEn: 'Registration, configuration, integration and adoption of new platforms and services.', level: 94, icon: 'operations' },
 ]

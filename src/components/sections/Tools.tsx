@@ -1,15 +1,17 @@
 'use client'
 
+import Link from 'next/link'
 import { useApp } from '@/context/AppContext'
+import { toAnchor } from '@/lib/anchors'
 
-type ToolItem = {
+export type ToolItem = {
   name: string
   es: string
   en: string
   icon?: string
 }
 
-const tools: ToolItem[] = [
+export const tools: ToolItem[] = [
   { name: 'Flutter', es: 'Desarrollo móvil multiplataforma', en: 'Cross-platform mobile development', icon: 'https://cdn.simpleicons.org/flutter/02569B' },
   { name: 'React / Next.js', es: 'Frontend web moderno', en: 'Modern web frontend', icon: 'https://cdn.simpleicons.org/nextdotjs/000000' },
   { name: 'Node.js', es: 'Backend y APIs', en: 'Backend and APIs', icon: 'https://cdn.simpleicons.org/nodedotjs/5FA04E' },
@@ -19,6 +21,7 @@ const tools: ToolItem[] = [
   { name: 'GitHub', es: 'Repositorios y control de versiones', en: 'Repositories and version control', icon: 'https://cdn.simpleicons.org/github/181717' },
   { name: 'GitHub Projects', es: 'Planificación de producto', en: 'Product planning', icon: 'https://cdn.simpleicons.org/github/181717' },
   { name: 'Linear', es: 'Gestión de tickets', en: 'Ticket management', icon: 'https://cdn.simpleicons.org/linear/5E6AD2' },
+  { name: 'ClickUp', es: 'Organización de tareas y departamentos', en: 'Task and department organization', icon: 'https://cdn.simpleicons.org/clickup/7B68EE' },
   { name: 'Slack', es: 'Comunicación de equipos', en: 'Team communication', icon: 'https://api.iconify.design/logos:slack-icon.svg' },
   { name: 'TestFlight', es: 'Pruebas iOS', en: 'iOS testing', icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSowOJhvYnXV1RWzbSgAcFEk168viHuSgiNzikO3YQsg&s=10' },
   { name: 'Vercel', es: 'Deploy y hosting', en: 'Deploy and hosting', icon: 'https://cdn.simpleicons.org/vercel/000000' },
@@ -36,7 +39,8 @@ const tools: ToolItem[] = [
   { name: 'Clockify', es: 'Control de tiempos', en: 'Time tracking', icon: 'https://cdn.simpleicons.org/clockify/03A9F4' },
   { name: 'DocuSign', es: 'Firma digital', en: 'Digital signature', icon: 'https://www.google.com/s2/favicons?domain=docusign.com&sz=64' },
   { name: 'Stripe', es: 'Pagos online', en: 'Online payments', icon: 'https://cdn.simpleicons.org/stripe/635BFF' },
-  { name: 'Revolut / Revolut Pay', es: 'Pagos e integraciones', en: 'Payments and integrations', icon: 'https://cdn.simpleicons.org/revolut/191C1F' },
+  { name: 'Revolut Business / Revolut Pay', es: 'Banca empresarial y pagos', en: 'Business banking and payments', icon: 'https://cdn.simpleicons.org/revolut/191C1F' },
+  { name: 'Cetelem', es: 'Financiación de clientes', en: 'Customer financing', icon: 'https://www.google.com/s2/favicons?domain=cetelem.es&sz=64' },
   { name: 'Santander / BBVA / CaixaBank', es: 'Financiación', en: 'Financing', icon: 'https://www.google.com/s2/favicons?domain=santander.com&sz=64' },
   { name: 'FedEx / GLS / MRW / UPS', es: 'Operadores logísticos', en: 'Shipping carriers', icon: 'https://api.iconify.design/simple-icons:fedex.svg?color=%234D148C' },
   { name: 'Figma', es: 'Diseño UI/UX', en: 'UI/UX design', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
@@ -64,6 +68,42 @@ const stackColors = [
   ['#f5f3ff', '#7c3aed'],
 ]
 
+export function ToolsGrid({ preview = false }: { preview?: boolean }) {
+  const { t } = useApp()
+
+  return (
+    <div className={`tools-grid${preview ? ' tools-grid--preview' : ''}`}>
+      {tools.map((item, index) => {
+        const [background, stroke] = stackColors[index % stackColors.length]
+
+        return (
+          <div
+            id={`tool-${toAnchor(item.name)}`}
+            className={`tool${preview ? ' rv' : ''}`}
+            data-d={(index % 4) + 1}
+            key={item.name}
+          >
+            <div className="tool-ic" style={{ background }}>
+              {item.icon ? (
+                <img className="tool-logo" src={item.icon} alt="" aria-hidden="true" />
+              ) : (
+                <svg viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2">
+                  <rect x="4" y="4" width="16" height="16" rx="3" />
+                  <path d="M8 9h8M8 13h6M8 17h4" />
+                </svg>
+              )}
+            </div>
+            <div>
+              <div className="tool-name">{item.name}</div>
+              <div className="tool-sub">{t(item.es, item.en)}</div>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export function Tools() {
   const { t } = useApp()
 
@@ -78,34 +118,17 @@ export function Tools() {
           {t('Apps, servicios y plataformas que manejo.', 'Apps, services and platforms I use.')}
         </p>
 
-        <div className="grid-section-title rv" data-d="2">
-          {t('Herramientas y plataformas', 'Tools and platforms')}
+        <div className="skills-preview-heading tools-preview-heading rv" data-d="2">
+          <h3>{t('Herramientas y plataformas', 'Tools and platforms')}</h3>
+          <Link href="/herramientas">
+            {t('Ver más', 'View more')}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </Link>
         </div>
 
-        <div className="tools-grid">
-          {tools.map((item, index) => {
-            const [background, stroke] = stackColors[index % stackColors.length]
-
-            return (
-              <div className="tool rv" data-d={(index % 4) + 1} key={item.name}>
-                <div className="tool-ic" style={{ background }}>
-                  {item.icon ? (
-                    <img className="tool-logo" src={item.icon} alt="" aria-hidden="true" />
-                  ) : (
-                    <svg viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2">
-                      <rect x="4" y="4" width="16" height="16" rx="3" />
-                      <path d="M8 9h8M8 13h6M8 17h4" />
-                    </svg>
-                  )}
-                </div>
-                <div>
-                  <div className="tool-name">{item.name}</div>
-                  <div className="tool-sub">{t(item.es, item.en)}</div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
+        <ToolsGrid preview />
       </div>
     </section>
   )

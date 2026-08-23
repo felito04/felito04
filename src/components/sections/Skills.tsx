@@ -15,7 +15,7 @@ export function Skills() {
         <h2 className="s-title rv" data-d="1">{t('Lo que aporto', 'What I bring')}</h2>
         <p className="s-sub rv" data-d="2">
           {t(
-            'Expertise administrativo + tecnología. Una combinación poco frecuente.',
+            'Experiencia administrativa + tecnología. Una combinación poco frecuente.',
             'Administrative expertise + technology. A rare combination.',
           )}
         </p>
