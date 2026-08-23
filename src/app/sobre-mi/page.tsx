@@ -40,7 +40,7 @@ export default function AboutProfilePage() {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          {t('Volver al portfolio', 'Back to portfolio')}
+          {t('Volver', 'Back')}
         </Link>
       </header>
 
@@ -80,7 +80,7 @@ export default function AboutProfilePage() {
         >
           <div className="profile-shell">
             <p className="profile-eyebrow">{t('Mi enfoque', 'My approach')}</p>
-            <h2>{t('Cómo entiendo el trabajo.', 'How I approach work.')}</h2>
+            <h2>{t('Cómo entiendo el trabajo', 'How I approach work')}</h2>
 
             <div className="profile-text-list">
               <article>
@@ -132,7 +132,7 @@ export default function AboutProfilePage() {
           <div className="profile-shell">
             <div className="profile-publications-heading">
               <p className="profile-eyebrow">{t('Publicaciones', 'Publications')}</p>
-              <h2>{t('Ideas que forman mi manera de trabajar.', 'Ideas that shape the way I work.')}</h2>
+              <h2>{t('Ideas que forman mi manera de trabajar', 'Ideas that shape the way I work')}</h2>
             </div>
 
             <div className="profile-publication-list">

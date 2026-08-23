@@ -2,19 +2,10 @@
 
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { SkillCard } from '@/components/SkillCard'
-import type { PortfolioSkill } from '@/data/skills'
+import { ToolsGrid } from '@/components/sections/Tools'
 import { useApp } from '@/context/AppContext'
 
-type SkillsDetailPageProps = {
-  titleEs: string
-  titleEn: string
-  introEs: string
-  introEn: string
-  skills: PortfolioSkill[]
-}
-
-export function SkillsDetailPage({ titleEs, titleEn, introEs, introEn, skills }: SkillsDetailPageProps) {
+export default function ToolsPage() {
   const { t } = useApp()
 
   useEffect(() => {
@@ -32,10 +23,10 @@ export function SkillsDetailPage({ titleEs, titleEn, introEs, introEn, skills }:
   }, [])
 
   return (
-    <div className="skills-page">
+    <div className="tools-page">
       <header className="profile-nav">
         <Link className="profile-logo" href="/">FZ</Link>
-        <Link className="profile-back" href="/portfolio#habilidades">
+        <Link className="profile-back" href="/portfolio#herramientas">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
@@ -43,15 +34,17 @@ export function SkillsDetailPage({ titleEs, titleEn, introEs, introEn, skills }:
         </Link>
       </header>
 
-      <main className="skills-detail">
-        <div className="skills-detail-shell">
-          <p className="profile-eyebrow">{t('Lo que aporto', 'What I bring')}</p>
-          <h1>{t(titleEs, titleEn)}</h1>
-          <p className="skills-detail-intro">{t(introEs, introEn)}</p>
-
-          <div className="skills-detail-grid">
-            {skills.map(skill => <SkillCard skill={skill} key={skill.nameEs} />)}
-          </div>
+      <main className="tools-detail">
+        <div className="tools-detail-shell">
+          <p className="profile-eyebrow">{t('Herramientas', 'Tools')}</p>
+          <h1>{t('Plataformas y stack', 'Platforms and stack')}</h1>
+          <p className="tools-detail-intro">
+            {t(
+              'Aplicaciones, servicios y plataformas que utilizo para desarrollar, organizar y mejorar operaciones reales.',
+              'Applications, services and platforms I use to build, organize and improve real operations.',
+            )}
+          </p>
+          <ToolsGrid />
         </div>
       </main>
     </div>

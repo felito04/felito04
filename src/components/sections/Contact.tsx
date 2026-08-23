@@ -85,7 +85,7 @@ export function Contact() {
         <div className="si">
         <p className="s-label rv">{t('Contacto', 'Contact')}</p>
         <h2 className="s-title rv" data-d="1">
-          {t('Hablemos.', "Let's talk.")}
+          {t('Hablemos', "Let's talk")}
         </h2>
         <p className="s-sub rv" data-d="2">
           {t(

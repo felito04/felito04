@@ -11,9 +11,9 @@ export function About() {
       <div className="si">
         <p className="s-label rv">{t('Sobre mí', 'About me')}</p>
         <h2 className="s-title rv" data-d="1">
-          {t('Más que un cargo.', 'More than a title.')}
+          {t('Más que un cargo,', 'More than a title,')}
           <br />
-          {t('Un perfil único.', 'A unique profile.')}
+          {t('un perfil único', 'a unique profile')}
         </h2>
 
         <div className="about-grid">
@@ -67,15 +67,15 @@ export function About() {
               <div className="sn counter" data-target="2">
                 0
               </div>
-              <div className="sl">{t('Años de experiencia demostrables', 'Years of demonstrable experience')}</div>
+              <div className="sl">{t('Años de experiencia', 'Years of experience')}</div>
             </div>
             <div className="stat">
               <div className="sn">2</div>
               <div className="sl">{t('Países', 'Countries')}</div>
             </div>
             <div className="stat">
-              <div className="sn">3</div>
-              <div className="sl">{t('CRMs creados', 'CRMs built')}</div>
+              <div className="sn">6</div>
+              <div className="sl">{t('Proyectos creados', 'Projects created')}</div>
             </div>
             <div className="stat">
               <div className="sn counter" data-target="6">
